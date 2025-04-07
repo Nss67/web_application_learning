@@ -73,6 +73,13 @@
                                         <!-- Product price-->
                                         در دسته {{product.category}}
                                         <br>
+                                        <div class="d-flex justify-content-center small text-warning mb-2">
+                                            {% with ''|center:product.star as range %}
+                                                {% for star in range %}
+                                                    <div class="bi-star-fill"></div>
+                                                {% endfor %}
+                                            {% endwith %}
+                                            </div>
                                         <hr>
                                         <strike>{{product.price | intcomma}} تومان</strike>
                                         <br>
@@ -81,7 +88,7 @@
                                 </div>
                                 <!-- Product actions-->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">مشخصات</a></div>
                                 </div>
                             </div>
                         </div>
@@ -102,13 +109,20 @@
                                         <!-- Product price-->
                                         در دسته {{product.category}}
                                         <br>
+                                        <div class="d-flex justify-content-center small text-warning mb-2">
+                                        {% with ''|center:product.star as range %}
+                                            {% for star in range %}
+                                                <div class="bi-star-fill"></div>
+                                            {% endfor %}
+                                        {% endwith %}
+                                        </div>
                                         <hr>
                                         {{product.price | intcomma}} تومان
                                     </div>
                                 </div>
                                 <!-- Product actions-->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">مشخصات</a></div>
                                 </div>
                             </div>
                         </div>
