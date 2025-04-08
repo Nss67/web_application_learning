@@ -1,10 +1,20 @@
+version: '3.8'
 services:
   django-test-app:
     build: .
-
+    image: django-testapp
     ports:
       - "8000:8000"
 
     volumes:
       - sqlite3:/app/django_tutorial/database
       - media:/app/django_tutorial/media
+
+    container_name: django_test_app
+
+
+volumes:
+  sqlite3:
+    name: "sqlite3-composer"
+  media:
+    name: "media-composer"
