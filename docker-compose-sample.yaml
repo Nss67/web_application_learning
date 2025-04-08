@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  mongo_db:
+    image: imageName
+
+    volumes:
+      - dbs:/app/database/
+
+    networks:
+      - test-net
+
+    environment:
+      USERNAME: root
+
+    container_name: mongo_db
+
+  backend:
+    build: .
+    
+    ports:
+      - "8000:8000"
+
+    volumes:
+      - media:/app/media
+
+    networks:
+      - test-net
+
+    depends_on:
+      - mongo_db
+
+    container_name: backend-app
+
+  frontend:
+    build: .
+
+    ports:
+      - "3000:3000"
+
+    stdin: true
+    tty: true
+
+    networks:
+      - test-net
+
+    depends_on:
+      - backend
+
+    container_name: frontend-app
+
+
+volumes:
+ dbs:
+ media:
+
+networks:
+  test-net:
