@@ -1,0 +1,10 @@
+services:
+  django-test-app:
+    build: .
+
+    ports:
+      - "8000:8000"
+
+    volumes:
+      - sqlite3:/app/django_tutorial/database
+      - media:/app/django_tutorial/media
