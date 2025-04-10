@@ -12,3 +12,6 @@ def render_page(request):
     context = {"products": all_products}
 
     return render(request, "index.html", context)
+
+def about(request):
+    return render(request, "about.html")
